@@ -1,0 +1,26 @@
+package chapter02;
+
+import java.io.*;
+import java.util.*;
+
+public class q003 {
+    public static void main(String[] args) throws IOException {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st = new StringTokenizer(br.readLine());
+
+        int suNo = Integer.parseInt(st.nextToken());
+        int quizNo = Integer.parseInt(st.nextToken());
+        long[] S = new long[suNo + 1];
+        st = new StringTokenizer(br.readLine());
+        for(int i = 0 ; i < suNo; i++) {
+            S[i] = S[i-1] + Integer.parseInt(st.nextToken());
+        } //합 배열 생성
+
+        for(int q = 0 ; q < quizNo; q++) {
+            st = new StringTokenizer(br.readLine());
+            int i = Integer.parseInt(st.nextToken());
+            int j = Integer.parseInt(st.nextToken());
+            System.out.println(S[j] - S[i - 1]);
+        }
+    }
+}
